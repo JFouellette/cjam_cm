@@ -19,8 +19,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data['title'] = "Test";
 		$this->load->helper('url');
-		$this->load->view('layout.php');
+		$this->load->view('layout.php', $data);
 	}
 }
 

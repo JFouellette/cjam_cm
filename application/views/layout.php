@@ -13,8 +13,7 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link rel="stylesheet" href="<?php echo base_url()."assets/";?>css/normalize.css">
-        <link rel="stylesheet" href="<?php echo base_url()."assets/";?>css/bootstrap.min.css">
-        <link rel="stylesheet" href="<?php echo base_url()."assets/";?>css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="<?php echo base_url()."assets/";?>css/bootstrap.min.css" media="screen">
         <link rel="stylesheet" href="<?php echo base_url()."assets/";?>css/main.css">
         <script src="<?php echo base_url()."assets/";?>js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
@@ -24,11 +23,16 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-
+        
+        <div class="container">
+            <h1>Hello World!</h1>
+            <p>Hello world! This is HTML5 Boilerplate.</p>
+        </div> <!-- /.container -->
+        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php echo base_url()."assets/";?>js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="<?php echo base_url()."assets/";?>js/plugins.js"></script>
+        <script src="<?php echo base_url()."assets/";?>js/vendor/bootstrap.min.js"></script>
         <script src="<?php echo base_url()."assets/";?>js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -41,7 +41,7 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
-$route['infonight'] = "infonight";
+$route['infonights'] = "infonights";
 $route['cases']		= "cases";
 $route['library']	= "knowledgelibrary";
 $route['users']		= "admin";

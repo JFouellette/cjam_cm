@@ -34,24 +34,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">CJAM</a>
+          <a class="navbar-brand" href="<?php echo site_url(); ?>">CJAM</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Info nights</a></li>
-            <li><a href="#cases">Cases</a></li>
-            <li><a href="#library">Contact</a></li>
-            <li><a href="#Users">Users</a></li>
+            <li class="active"><a href="<?php echo site_url('infonights'); ?>">Info nights</a></li>
+            <li><a href="<?php echo site_url('cases'); ?>">Cases</a></li>
+            <li><a href="<?php echo site_url('knowledgelibrary'); ?>">Library</a></li>
+            <li><a href="<?php echo site_url('admin') ?>">Users</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
+            <p class="navbar-text pull-right">You are logged in as <a href="<?php echo site_url('userprofile'); ?>">Username</a>. <a href="#">Log out</a></p>
         </div><!--/.navbar-collapse -->
       </div>
     </div>

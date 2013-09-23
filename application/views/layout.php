@@ -38,31 +38,25 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="<?php echo site_url('infonights'); ?>">Info nights</a></li>
+            <li <?php if (current_url() === site_url() . "/infonights") {echo "class='active'";} ?>><a href="<?php echo site_url('infonights'); ?>">Info nights</a></li>
             <li><a href="<?php echo site_url('cases'); ?>">Cases</a></li>
             <li><a href="<?php echo site_url('knowledgelibrary'); ?>">Library</a></li>
             <li><a href="<?php echo site_url('admin') ?>">Users</a></li>
           </ul>
-            <p class="navbar-text pull-right">You are logged in as <a href="<?php echo site_url('userprofile'); ?>">Username</a>. <a href="#">Log out</a></p>
+            <p class="navbar-text pull-right">Signed in as <a href="<?php echo site_url('userprofile'); ?>">Username</a> <br/>
+                <a href="<?php echo site_url('userprofile'); ?>">Profile</a> | <a href="#">Log out</a></p>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    
     <div class="container">
 
-      <h1>Bootstrap starter template</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+      <h1><?php echo $title; ?></h1>
+        <h1 class="pull-right">Today is (date)</h1>
 
-    </div>
+        <?php echo site_url()."infonights";?>
+        <?php echo current_url();?>
 
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-      </div>
     </div>
 
        <!-- content -->

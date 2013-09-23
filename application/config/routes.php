@@ -43,9 +43,9 @@ $route['404_override'] = '';
 
 $route['infonight'] = "infonight";
 $route['cases']		= "cases";
-$route['library']	= "library";
+$route['library']	= "knowledgelibrary";
 $route['users']		= "admin";
-$route['profile']	= "profile";
+$route['profile']	= "userprofile";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

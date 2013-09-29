@@ -10,5 +10,5 @@ class Admin extends CI_Controller {
 	}
 }
 
-/* End of file users.php */
+/* End of file admin.php */
 /* Location: ./application/controllers/users.php */

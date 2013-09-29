@@ -64,6 +64,7 @@
         <div class="container">
             <h1>Hello World!</h1>
             <p>Hello world! This is HTML5 Boilerplate.</p>
+            <p><?php echo $thissession; ?></p>
         </div> <!-- /.container -->
         
        

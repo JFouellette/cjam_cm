@@ -6,7 +6,9 @@ class KnowledgeLibrary extends CI_Controller {
 	{
 		$data['title'] = "Library CJAM";
 		$this->load->helper('url');
+		$this->load->view('head.php', $data);
 		$this->load->view('layout.php', $data);
+		$this->load->view('footer.php', $data);
 	}
 }
 

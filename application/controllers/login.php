@@ -6,7 +6,9 @@ class Login extends CI_Controller {
 	{
 		$data['title'] = "Users";
 		$this->load->helper('url');
+		$this->load->view('head.php', $data);
 		$this->load->view('login.php', $data);
+		$this->load->view('footer.php', $data);
 	}
 }
 

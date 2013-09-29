@@ -6,7 +6,9 @@ class Cases extends CI_Controller {
 	{
 		$data['title'] = "Cases";
 		$this->load->helper('url');
+		$this->load->view('head.php', $data);
 		$this->load->view('layout.php', $data);
+		$this->load->view('footer.php', $data);
 	}
 }
 

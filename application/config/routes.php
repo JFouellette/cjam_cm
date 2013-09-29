@@ -41,12 +41,13 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
-$route['infonights'] = "infonights";
+$route['infonights']= "infonights";
 $route['cases']		= "cases";
 $route['library']	= "knowledgelibrary";
 $route['users']		= "admin";
 $route['profile']	= "userprofile";
 $route['login']		= "login";
+$route['logout']	= "home/logout";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

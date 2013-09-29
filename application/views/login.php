@@ -60,35 +60,19 @@
 
             <div class="container">
 
-              <form class="form-signin">
+                <?php echo validation_errors(); ?>
+                <?php $formclass = array('class' => 'form-signin');
+                echo form_open('verifylogin', $formclass); ?>
                 <h2 class="form-signin-heading">Please sign in</h2>
-                <input type="text" class="input-block-level" placeholder="Email address">
-                <input type="password" class="input-block-level" placeholder="Password">
+                <input type="text" class="input-block-level" placeholder="Email address" id="username" name="username">
+                <input type="password" class="input-block-level" placeholder="Password" id="password" name="password">
                 <label class="checkbox">
                   <input type="checkbox" value="remember-me"> Remember me
               </label>
-              <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+              <button class="btn btn-large btn-primary" type="submit" value="Login">Sign in</button>
           </form>
 
       </div>
 
 
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-      <script>window.jQuery || document.write('<script src="<?php echo base_url()."assets";?>js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-      <script src="<?php echo base_url()."assets/";?>js/vendor/jquery-1.10.2.min.js"></script>
-      <script src="<?php echo base_url()."assets/";?>js/vendor/bootstrap.min.js"></script>
-      <script src="<?php echo base_url()."assets/";?>js/plugins.js"></script>
-      <script src="<?php echo base_url()."assets/";?>js/main.js"></script>
-      
 
-      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-      <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-      </script>
-  </body>
-  </html>

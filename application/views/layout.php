@@ -25,7 +25,7 @@
             <li <?php if (current_url() === site_url() . "/knowledgelibrary") {echo "class='active'";} ?>><a href="<?php echo site_url('knowledgelibrary'); ?>">Library</a></li>
             <li <?php if (current_url() === site_url() . "/admin") {echo "class='active'";} ?>><a href="<?php echo site_url('admin') ?>">Users</a></li>
           </ul>
-            <p class="navbar-text pull-right">Signed in as <a href="<?php echo site_url('userprofile'); ?>">Username</a> | <a href="#">Log out</a></p>
+            <p class="navbar-text pull-right">Signed in as <a href="<?php echo site_url('userprofile'); ?>"><?php echo $username; ?></a> | <a href="<?php echo site_url('logout'); ?>">Log out</a></p>
         </div><!--/.navbar-collapse -->
       </div>
     </div>

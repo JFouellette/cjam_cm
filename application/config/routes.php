@@ -46,6 +46,7 @@ $route['cases']		= "cases";
 $route['library']	= "knowledgelibrary";
 $route['users']		= "admin";
 $route['profile']	= "userprofile";
+$route['login']		= "login";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -29,9 +29,13 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cjam`.`cm_sessions` ;
 
 CREATE TABLE IF NOT EXISTS `cjam`.`cm_sessions` (
-  `session_id` INT NOT NULL,
-  `session` VARCHAR(45) NULL,
-  PRIMARY KEY (`session_id`))
+  `session_id` VARCHAR(40) NOT NULL DEFAULT 0,
+  `ip_address` VARCHAR(45) NOT NULL DEFAULT 0 COMMENT '	',
+  `user_agent` VARCHAR(120) NOT NULL,
+  `last_activity` INT(10) UNSIGNED NOT NULL DEFAULT 0,
+  `user_data` TEXT NOT NULL,
+  PRIMARY KEY (`session_id`),
+  INDEX `last_activity_idx` (`last_activity` ASC))
 ENGINE = InnoDB;
 
 
@@ -121,3 +125,15 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `cjam`.`cm_users`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `cjam`;
+INSERT INTO `cjam`.`cm_users` (`firstname`, `lastname`, `user_id`, `email`, `password`, `privilege`) VALUES ('JF', 'Ouellette', NULL, 'jfr.ouellette@gmail.com', 'supersecret', 100);
+INSERT INTO `cjam`.`cm_users` (`firstname`, `lastname`, `user_id`, `email`, `password`, `privilege`) VALUES ('Diane', 'Lemant', NULL, 'diane@lemant.com', 'pass123', 1);
+INSERT INTO `cjam`.`cm_users` (`firstname`, `lastname`, `user_id`, `email`, `password`, `privilege`) VALUES ('Jean-Yves', 'Montagne', NULL, 'jean@yves.com', 'supersecret', 1);
+
+COMMIT;
+

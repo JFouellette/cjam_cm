@@ -14,5 +14,9 @@
         <link rel="stylesheet" href="<?php echo base_url()."assets/";?>css/main.css">
         <link rel="stylesheet" href="<?php echo base_url()."assets/";?>css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url()."assets/";?>css/bootstrap-theme.min.css">
+        <?php 
+        if(isset($css)) {
+        echo $css;
+        }?>
         <script src="<?php echo base_url()."assets/";?>js/vendor/modernizr-2.6.2.min.js"></script>
     </head>

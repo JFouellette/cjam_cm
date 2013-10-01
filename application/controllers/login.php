@@ -10,8 +10,8 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper(array('form'));
-		$data['title'] = "Users";
-		
+		$data['title'] = "CJAM Login";
+		$data['css'] = '<link rel="stylesheet" href="'.base_url()."assets/".'css/login.css">';		
 		$this->load->view('head.php', $data);
 		$this->load->view('login.php', $data);
 		$this->load->view('footer.php', $data);

@@ -12,9 +12,6 @@
                 <h2 class="form-signin-heading">Please sign in</h2>
                 <input type="text" class="input-block-level" value="<?php echo set_value('username'); ?>" placeholder="Email address" id="username" name="username">
                 <input type="password" class="input-block-level" placeholder="Password" value="<?php echo set_value('password'); ?>" id="password" name="password">
-                <label class="checkbox">
-                  <input type="checkbox" value="remember-me">Remember me</input>
-              </label>
               <button class="btn btn-primary" type="submit" value="Login">Sign in</button>
           </form>
 

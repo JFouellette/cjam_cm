@@ -32,11 +32,8 @@
 
     <div class="container">
 
-      <h1><?php echo $title; ?></h1>
-        <h1 class="pull-right">Today is (date)</h1>
-
-        <?php echo site_url()."infonights";?>
-        <?php echo current_url();?>
+      <h1 class="pull-left"><?php echo $title; ?></h1>
+        <h1 class="pull-right">Today is <?php  ?></h1>
 
     </div>
 

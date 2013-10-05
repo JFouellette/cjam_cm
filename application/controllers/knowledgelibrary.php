@@ -12,7 +12,9 @@ class KnowledgeLibrary extends CI_Controller {
 	     $data['title'] = "Library";
 
 	     $this->load->view('head', $data);
+	     $this->load->view('nav', $data);
 	     $this->load->view('layout', $data);
+	     $this->load->view('scripts', $data);
 	     $this->load->view('footer', $data);
 	   }
 	   else

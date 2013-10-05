@@ -17,7 +17,8 @@ class UserProfile extends CI_Controller {
 	     $data['title'] = $session_data['username'] . " Profile";
 
 	     $this->load->view('head', $data);
-	     $this->load->view('layout', $data);
+	     $this->load->view('nav', $data);
+	     $this->load->view('userprofile', $data);
 	     $this->load->view('ajax/loaduserdata',$data);
 	     $this->load->view('footer', $data);
 	   }

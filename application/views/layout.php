@@ -44,7 +44,7 @@
             <p>Hello world! This is HTML5 Boilerplate.</p>
             <div id="error-message"></div>
             <div id="result_table"></div>
-            <a href="#" class="btn" id="getdata">Get data</a>
+            <a href="#" class="btn btn-primary" id="getdata">Get data</a>
 
             <p></p>
         </div> <!-- /.container -->

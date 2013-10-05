@@ -19,7 +19,7 @@ class UserProfile extends CI_Controller {
 	     $this->load->view('head', $data);
 	     $this->load->view('nav', $data);
 	     $this->load->view('userprofile', $data);
-	     $this->load->view('ajax/loaduserdata',$data);
+	     //$this->load->view('ajax/loaduserdata',$data);
 	     $this->load->view('footer', $data);
 	   }
 	   else

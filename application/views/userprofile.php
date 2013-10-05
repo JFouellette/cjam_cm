@@ -1,48 +1,78 @@
+<div class="container">
+  <h1 class="pull-left"><?php echo $title; ?></h1>
+</div>
 
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Add your site or application content here -->
-        
-       <!-- navigation -->
-
-    <div class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="<?php echo site_url(); ?>">CJAM</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li <?php if (current_url() === site_url() . "/infonights") {echo "class='active'";} ?>><a href="<?php echo site_url('infonights'); ?>">Info nights</a></li>
-            <li <?php if (current_url() === site_url() . "/cases") {echo "class='active'";} ?>><a href="<?php echo site_url('cases'); ?>">Cases</a></li>
-            <li <?php if (current_url() === site_url() . "/knowledgelibrary") {echo "class='active'";} ?>><a href="<?php echo site_url('knowledgelibrary'); ?>">Library</a></li>
-            <li <?php if (current_url() === site_url() . "/admin") {echo "class='active'";} ?>><a href="<?php echo site_url('admin') ?>">Users</a></li>
-          </ul>
-            <p class="navbar-text pull-right">Signed in as <a href="<?php echo site_url('userprofile'); ?>"><?php echo $username; ?></a> | <a href="<?php echo site_url('logout'); ?>">Log out</a></p>
-        </div><!--/.navbar-collapse -->
-      </div>
+<div class="container">
+    <h3>Edit your profile</h3>
+    <br/>
+    
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="inputName" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="inputName" placeholder="Email">
     </div>
-
-    <div class="container">
-
-      <h1 class="pull-left"><?php echo $title; ?></h1>
-        <h1 class="pull-right">Today is <?php  ?></h1>
-
+  </div>
+  
+  <div class="form-group">
+    <label for="inputEmail1" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-5">
+      <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
     </div>
+  </div>
 
-       <!-- content -->
+  <div class="form-group">
+    <label for="inputName" class="col-sm-2 control-label">Phone</label>
+    <div class="col-sm-5">
+      <input type="tel" class="form-control" id="inputPhone" placeholder="Phone">
+    </div>
+  </div>
 
-        <div class="container">
-            <h1>Hello World!</h1>
-            <p>Hello world! This is HTML5 Boilerplate.</p>
-        </div> <!-- /.container -->
+<div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <button type="submit" class="btn btn-default" disabled="disabled">Save</button>
+    </div>
+  </div>
 
-        <div class="container" id="maindiv"></div>
+</form>
+
+</div>
+
+<!-- Change password form -->
+
+<div class="container">
+    <h3>Change your password</h3>
+    <br/>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputOldPassword" class="col-sm-2 control-label">Old Password</label>
+    <div class="col-sm-5">
+      <input type="password" class="form-control" id="inputOldPassword" placeholder="Old Password">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="inputPassword1" class="col-sm-2 control-label">New Password</label>
+    <div class="col-sm-5">
+      <input type="password" class="form-control" id="inputPassword" placeholder="New Password">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputPassword2" class="col-sm-2 control-label">Retype Password</label>
+    <div class="col-sm-5">
+      <input type="password" class="form-control" id="inputPassword2" placeholder="Retype Password">
+    </div>
+  </div>
+
+<div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <button type="submit" disabled="disabled" class="btn btn-default">Save</button>
+    </div>
+  </div>
+
+</form>
+
+</div> <!-- /.container -->
 

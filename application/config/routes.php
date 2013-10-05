@@ -46,6 +46,7 @@ $route['cases']		= "cases";
 $route['library']	= "knowledgelibrary";
 $route['users']		= "admin";
 $route['profile']	= "userprofile";
+$route['profile/loaduserdata'] = "userprofile/loaduserdata";
 $route['login']		= "login";
 $route['logout']	= "home/logout";
 

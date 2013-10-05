@@ -12,12 +12,12 @@ USE `cjam` ;
 DROP TABLE IF EXISTS `cjam`.`cm_users` ;
 
 CREATE TABLE IF NOT EXISTS `cjam`.`cm_users` (
-  `firstname` VARCHAR(32) NOT NULL,
-  `lastname` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `privilege` INT NOT NULL DEFAULT 1,
+  `phone` VARCHAR(45) NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB;
@@ -125,15 +125,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
--- -----------------------------------------------------
--- Data for table `cjam`.`cm_users`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `cjam`;
-INSERT INTO `cjam`.`cm_users` (`firstname`, `lastname`, `user_id`, `email`, `password`, `privilege`) VALUES ('JF', 'Ouellette', NULL, 'jfr.ouellette@gmail.com', 'supersecret', 100);
-INSERT INTO `cjam`.`cm_users` (`firstname`, `lastname`, `user_id`, `email`, `password`, `privilege`) VALUES ('Diane', 'Lemant', NULL, 'diane@lemant.com', 'pass123', 1);
-INSERT INTO `cjam`.`cm_users` (`firstname`, `lastname`, `user_id`, `email`, `password`, `privilege`) VALUES ('Jean-Yves', 'Montagne', NULL, 'jean@yves.com', 'supersecret', 1);
-
-COMMIT;
-

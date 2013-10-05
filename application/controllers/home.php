@@ -16,7 +16,7 @@ class Home extends CI_Controller {
 
      $data['title'] = "CJAM Case Manager";
 
-     $this->load->view('head', $data);
+     $this->load->view('head'/*, $data*/);
      $this->load->view('layout', $data);
      $this->load->view('footer', $data);
    }

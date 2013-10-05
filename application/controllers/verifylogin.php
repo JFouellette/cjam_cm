@@ -5,7 +5,7 @@ class VerifyLogin extends CI_Controller {
  function __construct()
  {
    parent::__construct();
-   $this->load->model('user','',TRUE);
+   $this->load->model('user_model','',TRUE);
  }
 
  function index()
@@ -40,7 +40,7 @@ class VerifyLogin extends CI_Controller {
    $username = $this->input->post('username');
 
    //query the database
-   $result = $this->user->login($username, $password);
+   $result = $this->user_model->login($username, $password);
 
    if($result)
    {
@@ -49,7 +49,7 @@ class VerifyLogin extends CI_Controller {
      {
        $sess_array = array(
          'id' => $row->user_id,
-         'username' => $row->firstname
+         'username' => $row->name
        );
        $this->session->set_userdata('logged_in', $sess_array);
      }

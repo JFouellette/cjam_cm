@@ -17,6 +17,7 @@
         <?php 
         if(isset($css)) {
         echo $css;
-        }?>
+        }
+        ?>
         <script src="<?php echo base_url()."assets/";?>js/vendor/modernizr-2.6.2.min.js"></script>
     </head>

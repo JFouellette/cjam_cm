@@ -28,8 +28,9 @@ Class User_model extends CI_Model
     $this -> db -> where('user_id', $userid);
 
     $query = $this -> db -> get();
+    $result = $query->result();
 
-    return $query->result();
+    return $result;
    }
 
 }

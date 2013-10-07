@@ -5,6 +5,9 @@
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
+<?php if (isset($js)) : ?>
+<script src="js/<?php echo $js ; ?>.js"></script>
+<?php endif; ?>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
@@ -16,3 +19,7 @@ r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
 ga('create','UA-XXXXX-X');ga('send','pageview');
 </script>
 <!-- body et html closed in footer.php -->
+
+<script>
+var siteUrl = "<?php echo site_url(); ?>";
+</script>

@@ -1,4 +1,9 @@
 <script>
+
+$('#user-data').on('click', 'input', function(event) {
+    $('#user-data button').removeAttr('disabled');
+});
+
 $('#maindiv').append('<div id="result_table"></div>');
 $.ajax({
         url: '<?php echo site_url()."/userprofile/loaduserdata" ?>',

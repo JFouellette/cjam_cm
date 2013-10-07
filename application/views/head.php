@@ -9,15 +9,15 @@
         <title><?php echo $title; ?></title>
         <meta name="" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <base href="<?php echo base_url();?>/assets/" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="<?php echo base_url()."assets/";?>css/main.css">
-        <link rel="stylesheet" href="<?php echo base_url()."assets/";?>css/bootstrap.min.css">
-        <link rel="stylesheet" href="<?php echo base_url()."assets/";?>css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <?php 
         if(isset($css)) {
         echo $css;
         }
         ?>
-        <script src="<?php echo base_url()."assets/";?>js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>

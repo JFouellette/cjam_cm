@@ -14,6 +14,7 @@ class UserProfile extends CI_Controller {
 	     //load basic stuff
 	     $session_data = $this->session->userdata('logged_in');
 		 $userid = $session_data['id'];
+		 $this->load->helper(array('form'));
 
 	     // retrieve user data
 	     $this->load->model('user_model');

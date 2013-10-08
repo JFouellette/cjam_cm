@@ -6,9 +6,13 @@
             <!-- Add your site or application content here -->
 
             <div class="container">
-                <?php $formclass = array('class' => 'form-signin', 'role' => 'form');
-                echo form_open('verifylogin', $formclass); ?>
-                <?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
+                
+                <?php
+                $formclass = array('class' => 'form-signin', 'role' => 'form');
+                echo form_open('verifylogin', $formclass);
+                echo validation_errors('<div class="alert alert-danger">', '</div>');
+                ?>
+
                 <h2 class="form-signin-heading">Please sign in</h2>
 
                  <div class="form-group">

@@ -6,8 +6,6 @@
     <h3>Edit your profile</h3>
     <br/>
 
-    <p> <?php var_dump($session_info); ?> </p>
-
 <form class="form-horizontal" role="form" id="user-data" method="post">
  
   <div class="form-group">

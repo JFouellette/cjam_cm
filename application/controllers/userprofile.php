@@ -45,7 +45,7 @@ class UserProfile extends CI_Controller {
 	   }
 	}
 
-	public function loaduserdata()
+	public function load_user_data()
 	{
 		$this->load->model('user_model');
 		$session_data = $this->session->userdata('logged_in');
@@ -63,6 +63,31 @@ class UserProfile extends CI_Controller {
 		}
 		
 	}
+
+	public function update_user_data()
+	{
+		if($_POST):
+
+		//load the basics
+		$this->load->model('user_model');
+		$session_data = $this->session->userdata('logged_in');
+		$userid = $session_data['id'];
+
+		//pass data in variables
+		$data = array(
+					'name' => $_POST['inputName'],
+					'email' => $_POST['inputEmail'],
+					'phone' => $_POST['inputPhone']
+			);
+
+		//update the db using user model
+		$this->user_model->update_user_database($userid, $data);
+
+			return true;
+
+		endif;
+	}
+
 }
 
 /* End of file userprofile.php */

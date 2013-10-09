@@ -6,32 +6,32 @@
     <h3>Edit your profile</h3>
     <br/>
 
-<form class="form-horizontal" role="form" id="user-data">
+<form class="form-horizontal" role="form" id="user-data" method="post">
  
   <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-5">
-      <input type="text" class="form-control" id="inputName" placeholder="Name" value="<?php echo $name ;?>">
+      <input type="text" name="inputName" class="form-control" id="inputName" placeholder="Name" value="<?php echo $name ;?>">
     </div>
   </div>
   
   <div class="form-group">
     <label for="inputEmail1" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-5">
-      <input type="email" class="form-control" id="inputEmail1" placeholder="Email" value="<?php echo $email ;?>">
+      <input type="email" name="inputEmail" class="form-control" id="inputEmail1" placeholder="Email" value="<?php echo $email ;?>">
     </div>
   </div>
 
   <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">Phone</label>
     <div class="col-sm-5">
-      <input type="tel" class="form-control" id="inputPhone" placeholder="Phone" value="<?php echo $phone ; ?>">
+      <input type="tel" name="inputPhone" class="form-control" id="inputPhone" placeholder="Phone" value="<?php echo $phone ; ?>">
     </div>
   </div>
 
 <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <button type="submit" class="btn btn-default" disabled="disabled">Save changes</button>
+      <button type="submit" class="btn btn-default" disabled="disabled" value="Submit">Save changes</button>
     </div>
   </div>
 

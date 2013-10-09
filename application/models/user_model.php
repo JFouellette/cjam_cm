@@ -33,4 +33,10 @@ Class User_model extends CI_Model
     return $result;
    }
 
+   function update_user_database($id, $data)
+   {
+    $this -> db -> where('user_id', $id);
+    $this -> db -> update('cm_users', $data);
+   }
+
 }

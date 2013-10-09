@@ -23,6 +23,7 @@ class UserProfile extends CI_Controller {
 	     $data['email'] = $obj[0]->email;
 		 $data['phone'] = $obj[0]->phone;
 		 $data['initial_values'] = json_encode($obj[0]);
+		 $data['session_info'] = $session_data; //test
 
 		 //js
 		 $data['js'] = "userprofile";
@@ -68,20 +69,28 @@ class UserProfile extends CI_Controller {
 	{
 		if($_POST):
 
-		//load the basics
-		$this->load->model('user_model');
-		$session_data = $this->session->userdata('logged_in');
-		$userid = $session_data['id'];
+			//load the basics
+			$this->load->model('user_model');
+			$session_data = $this->session->userdata('logged_in');
+			$userid = $session_data['id'];
 
-		//pass data in variables
-		$data = array(
-					'name' => $_POST['inputName'],
-					'email' => $_POST['inputEmail'],
-					'phone' => $_POST['inputPhone']
-			);
+			//pass data in variables
+			$data = array(
+						'name' => $_POST['inputName'],
+						'email' => $_POST['inputEmail'],
+						'phone' => $_POST['inputPhone']
+				);
 
-		//update the db using user model
-		$this->user_model->update_user_database($userid, $data);
+			//update the db using user model
+			$this->user_model->update_user_database($userid, $data);
+
+
+			//refresh session infos
+			$sess_array = array(
+					         'id' => $userid,
+					         'username' => $_POST['inputName']
+	       					);
+	       	$this->session->set_userdata('logged_in', $sess_array);
 
 			return true;
 

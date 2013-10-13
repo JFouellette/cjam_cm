@@ -1,3 +1,4 @@
+$('#user-data button').attr('disabled', 'disabled');
 $('#user-data').on('keyup', 'input', function(event) {
     if ($("#inputName").val() === initialValues.name && $("#inputEmail1").val() === initialValues.email && $("#inputPhone").val() === initialValues.phone) {
     	$('#user-data button').attr('disabled', 'disabled');
@@ -15,16 +16,10 @@ $('#user-data').on( 'submit', function( event ) {
 	   url: siteUrl + "/userprofile/update_user_data",
 	   data: dataString,
 
-     beforeSend: function(){
-        $('#user-data button').attr('disabled', 'disabled');
-     },
-	   success: function(data){
-	       $('#user-data button').removeAttr('disabled');
-	   },
      error: function(){
         console.log("Ajax error");
      }
-   })
+    })
     .done(function(data){
         location.reload();
      });

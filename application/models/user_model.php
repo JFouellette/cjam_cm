@@ -28,9 +28,7 @@ Class User_model extends CI_Model
     $this -> db -> where('user_id', $userid);
 
     $query = $this -> db -> get();
-    $result = $query->result();
-
-    return $result;
+    return $query->result();
    }
 
    function update_user_database($id, $data)

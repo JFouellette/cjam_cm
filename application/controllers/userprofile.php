@@ -97,7 +97,7 @@ class UserProfile extends CI_Controller {
 	       	$this->session->set_userdata('logged_in', $sess_array);
 
 	       	// send message to view
-	       	if (!$up) {
+	       	if ($up == false) {
 				$this->session->set_flashdata('failure', 'Database error. Please contact coordinator');
 			} else {
 				$this->session->set_flashdata('success','Your changes have been saved.'); 	
@@ -110,49 +110,49 @@ class UserProfile extends CI_Controller {
 	public function change_user_password()
 	{
 
+		// warning if there is a problem with post request
 		if(!$_POST)
 		{
 			$this->session->set_flashdata('pass_failure','No POST function. Contact admin!');
 			return false;
 		}
-
-		//$this->form_validation->set_rules('inputNewPassword','New Password','required|trim');
-		//$this->form_validation->set_rules('inputNewPassword2','Confirm
-		//Password','required|trim|matches[npassword]');
 		
+
+		//make sure the new password is not empty
 		if(!$this->input->post('inputNewPassword'))
 		{
 			$this->session->set_flashdata('pass_failure', 'You forgot to enter a new password.');
 		}
+		//check both new passwords are the same
 		else if ($this->input->post('inputNewPassword') != $this->input->post('inputNewPassword2'))
 		{
-		    $this->session->set_flashdata('pass_failure', 
-		            'Password confirmation does not match.');      
+		    $this->session->set_flashdata('pass_failure','Password confirmation does not match.');      
 		}
+		//it should be good at this point!
 		else
 		{
-		    //some vars
+		    //vars used to update database
 		    $session_data = $this->session->userdata('logged_in');
 			$user_id = $session_data['id'];
 
+			//check that old password is valid
 			$old_password = $this->user_model->check_password($user_id, $this->input->post('inputOldPassword'));
 
+			// if yes, then hourra, updata database and throw a party
 			if ($old_password)
 			{
 
 				$new = array('password' => md5($this->input->post('inputNewPassword')));
 
 				$p = $this->user_model->update_user_database($user_id, $new);
-				if ($p == true)
-				{
-					$this->session->set_flashdata('pass_success', 'Password changed!');	
-				}
+				if ($p == true) // simple check for database errors
+				{$this->session->set_flashdata('pass_success', 'Password changed!');}
 				else
-				{
-					$this->session->set_flashdata('pass_failure', 'Database error, try again or contact admin.');	
-				}
+				{$this->session->set_flashdata('pass_failure', 'Database error, try again or contact admin.');}
 				
-			} else {
+			}
+			else // if old password is not good
+			{
 				$this->session->set_flashdata('pass_failure', 'Wrong password.');
 			}
 

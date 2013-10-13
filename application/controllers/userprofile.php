@@ -5,6 +5,7 @@ class UserProfile extends CI_Controller {
  function __construct()
  {
    parent::__construct();
+   $this->load->model('user_model');
  }
 
 	public function index()
@@ -23,7 +24,6 @@ class UserProfile extends CI_Controller {
 	     $data['email'] = $obj[0]->email;
 		 $data['phone'] = $obj[0]->phone;
 		 $data['initial_values'] = json_encode($obj[0]);
-		 $data['session_info'] = $session_data; //test
 
 		 //js
 		 $data['js'] = "userprofile";
@@ -32,6 +32,12 @@ class UserProfile extends CI_Controller {
 		 $data['username'] = $session_data['username'];
 	     $data['title'] = $session_data['username'] . " Profile";
 	     
+	     //load Flashdata
+	     $data['flashsuccess'] = $this->session->flashdata('success'); // in case of success
+	     $data['flashfailure'] = $this->session->flashdata('failure'); // in case of failure
+	     $data['flash_pass_success'] = $this->session->flashdata('pass_success'); // in case of success
+	     $data['flash_pass_failure'] = $this->session->flashdata('pass_failure'); // in case of failure
+
 	     //load views
 	     $this->load->view('head', $data);
 	     $this->load->view('nav', $data);
@@ -70,7 +76,6 @@ class UserProfile extends CI_Controller {
 		if($_POST):
 
 			//load the basics
-			$this->load->model('user_model');
 			$session_data = $this->session->userdata('logged_in');
 			$userid = $session_data['id'];
 
@@ -82,8 +87,7 @@ class UserProfile extends CI_Controller {
 				);
 
 			//update the db using user model
-			$this->user_model->update_user_database($userid, $data);
-
+			$up = $this->user_model->update_user_database($userid, $data);
 
 			//refresh session infos
 			$sess_array = array(
@@ -92,9 +96,68 @@ class UserProfile extends CI_Controller {
 	       					);
 	       	$this->session->set_userdata('logged_in', $sess_array);
 
+	       	// send message to view
+	       	if (!$up) {
+				$this->session->set_flashdata('failure', 'Database error. Please contact coordinator');
+			} else {
+				$this->session->set_flashdata('success','Your changes have been saved.'); 	
+			}
 			return true;
 
 		endif;
+	}
+
+	public function change_user_password()
+	{
+
+		if(!$_POST)
+		{
+			$this->session->set_flashdata('pass_failure','No POST function. Contact admin!');
+			return false;
+		}
+
+		//$this->form_validation->set_rules('inputNewPassword','New Password','required|trim');
+		//$this->form_validation->set_rules('inputNewPassword2','Confirm
+		//Password','required|trim|matches[npassword]');
+		
+		if(!$this->input->post('inputNewPassword'))
+		{
+			$this->session->set_flashdata('pass_failure', 'You forgot to enter a new password.');
+		}
+		else if ($this->input->post('inputNewPassword') != $this->input->post('inputNewPassword2'))
+		{
+		    $this->session->set_flashdata('pass_failure', 
+		            'Password confirmation does not match.');      
+		}
+		else
+		{
+		    //some vars
+		    $session_data = $this->session->userdata('logged_in');
+			$user_id = $session_data['id'];
+
+			$old_password = $this->user_model->check_password($user_id, $this->input->post('inputOldPassword'));
+
+			if ($old_password)
+			{
+
+				$new = array('password' => md5($this->input->post('inputNewPassword')));
+
+				$p = $this->user_model->update_user_database($user_id, $new);
+				if ($p == true)
+				{
+					$this->session->set_flashdata('pass_success', 'Password changed!');	
+				}
+				else
+				{
+					$this->session->set_flashdata('pass_failure', 'Database error, try again or contact admin.');	
+				}
+				
+			} else {
+				$this->session->set_flashdata('pass_failure', 'Wrong password.');
+			}
+
+		}
+
 	}
 
 }

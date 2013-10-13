@@ -15,38 +15,47 @@ $('#user-data').on( 'submit', function( event ) {
 	   url: siteUrl + "/userprofile/update_user_data",
 	   data: dataString,
 
+     beforeSend: function(){
+        $('#user-data button').attr('disabled', 'disabled');
+     },
 	   success: function(data){
-	       console.log('Successful!');
-	       console.log(dataString);
-	   }
-
-	 });
+	       $('#user-data button').removeAttr('disabled');
+	   },
+     error: function(){
+        console.log("Ajax error");
+     }
+   })
+    .done(function(data){
+        location.reload();
+     });
 
 	return false;  //stop the actual form post !important!
 
 });
 
-/*
- $(function(){
-       $("#user-data").submit(function(){
-         dataString = $("#user-data").serialize();
- 
-         $.ajax({
-           type: "POST",
-           url: siteUrl + "/userprofile/update_user_data",
-           data: dataString,
- 
-           success: function(data){
-               console.log('Successful!');
-               console.log(dataString);
-               console.log(data);
-           }
- 
-         });
- 
-         return false;  //stop the actual form post !important!
- 
-      });
-   });
+$('#user-password').on( 'submit', function( event ) {
+    event.preventDefault();
+    var dataPass = ( $( this ).serialize() );
 
- */
+    $.ajax({
+       type: "POST",
+       url: siteUrl + "/userprofile/change_user_password",
+       data: dataPass,
+
+     beforeSend: function(){
+        $('#user-password button').attr('disabled', 'disabled');
+     },
+       success: function(data){
+           $('#user-password button').removeAttr('disabled');
+       },
+     error: function(){
+        console.log("Ajax error");
+     }
+   })
+    .done(function(data){
+        location.reload();
+     });
+
+    return false;  //stop the actual form post !important!
+
+});

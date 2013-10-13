@@ -19,11 +19,13 @@ class VerifyLogin extends CI_Controller {
    if($this->form_validation->run() == FALSE)
    {
      //Field validation failed.  User redirected to login page
-    $data['title'] = "CJAM Login"; 
-    $data['css'] = '<link rel="stylesheet" href="'.base_url()."assets/".'css/login.css">';
-    $this->load->view('head.php', $data);
-    $this->load->view('login.php', $data);
-    $this->load->view('footer.php', $data);
+    $data['title'] = "CJAM Login";
+    $data['css'] = '<link rel="stylesheet" href="css/login.css">';    
+    $this->load->view('head', $data);
+    
+    $this->load->view('login', $data);
+    $this->load->view('scripts', $data);
+    $this->load->view('footer', $data);
 
    }
    else

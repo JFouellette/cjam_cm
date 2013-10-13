@@ -12,7 +12,7 @@ class Login extends CI_Controller {
 		
 		$this->load->helper(array('form'));
 		$data['title'] = "CJAM Login";
-		$data['css'] = '<link rel="stylesheet" href="'.base_url()."assets/".'css/login.css">';		
+		$data['css'] = '<link rel="stylesheet" href="css/login.css">';		
 		$this->load->view('head', $data);
 		
 		$this->load->view('login', $data);

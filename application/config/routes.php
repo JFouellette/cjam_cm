@@ -47,6 +47,7 @@ $route['library']	= "knowledgelibrary";
 $route['users']		= "admin";
 $route['profile']	= "userprofile";
 $route['profile/loaduserdata'] = "userprofile/load_user_data";
+$route['profile/change_user_password'] = "userprofile/change_user_password";
 $route['login']		= "login";
 $route['logout']	= "home/logout";
 

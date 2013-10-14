@@ -30,6 +30,7 @@ class UserProfile extends CI_Controller {
 
 	     //other stuff for the views
 		 $data['username'] = $session_data['username'];
+	     $data['privilege'] = $session_data['privilege'];
 	     $data['title'] = $session_data['username'] . " Profile";
 	     
 	     //load Flashdata
@@ -92,7 +93,8 @@ class UserProfile extends CI_Controller {
 			//refresh session infos
 			$sess_array = array(
 					         'id' => $userid,
-					         'username' => $_POST['inputName']
+					         'username' => $_POST['inputName'],
+					         'privilege' => $privilege
 	       					);
 	       	$this->session->set_userdata('logged_in', $sess_array);
 

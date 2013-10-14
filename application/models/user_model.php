@@ -3,7 +3,7 @@ Class User_model extends CI_Model
 {
    function login($username, $password)
    {
-     $this -> db -> select('user_id, name, password');
+     $this -> db -> select('user_id, name, password, privilege');
      $this -> db -> from('cm_users');
      $this -> db -> where('email', $username);
      $this -> db -> where('password', MD5($password));
@@ -23,7 +23,7 @@ Class User_model extends CI_Model
    
    function loaddata($userid)
    {
-    $this -> db -> select('name, email, phone');
+    $this -> db -> select('name, email, phone, privilege');
     $this -> db -> from('cm_users');
     $this -> db -> where('user_id', $userid);
 

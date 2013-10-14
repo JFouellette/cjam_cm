@@ -2,12 +2,18 @@
 
 class Admin extends CI_Controller {
 
+ function __construct()
+ {
+   parent::__construct();
+ }
+
 	public function index()
 	{
 	   if($this->session->userdata('logged_in'))
 	   {
 	     $session_data = $this->session->userdata('logged_in');
 	     $data['username'] = $session_data['username'];
+	     $data['privilege'] = $session_data['privilege'];
 
 	     $data['title'] = "Users";
 

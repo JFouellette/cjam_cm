@@ -13,6 +13,7 @@ class Home extends CI_Controller {
    {
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
+     $data['privilege'] = $session_data['privilege'];
 
      $data['title'] = "CJAM Case Manager";
 

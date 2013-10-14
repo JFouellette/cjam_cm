@@ -24,7 +24,9 @@
       <li <?php if (current_url() === site_url() . "/infonights") {echo "class='active'";} ?>><a href="<?php echo site_url('infonights'); ?>">Info nights</a></li>
       <li <?php if (current_url() === site_url() . "/cases") {echo "class='active'";} ?>><a href="<?php echo site_url('cases'); ?>">Cases</a></li>
       <li <?php if (current_url() === site_url() . "/knowledgelibrary") {echo "class='active'";} ?>><a href="<?php echo site_url('knowledgelibrary'); ?>">Library</a></li>
-      <li <?php if (current_url() === site_url() . "/admin") {echo "class='active'";} ?>><a href="<?php echo site_url('admin') ?>">Users</a></li>
+      <?php if($privilege >= 50) : ?>
+      <li <?php if (current_url() === site_url() . "/admin") {echo "class='active'";} ?>><a href="<?php echo site_url('admin') ?>">Admin</a></li>
+      <?php endif; ?>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="<?php echo site_url('userprofile'); ?>"><span class="glyphicon glyphicon-user"></span> <?php echo $username; ?></a></li>

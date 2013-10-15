@@ -45,6 +45,7 @@ $route['infonights']= "infonights";
 $route['cases']		= "cases";
 $route['library']	= "knowledgelibrary";
 $route['users']		= "admin";
+$route['users/loadall'] = "admin/load_all";
 $route['profile']	= "userprofile";
 $route['profile/loaduserdata'] = "userprofile/load_user_data";
 $route['profile/change_user_password'] = "userprofile/change_user_password";

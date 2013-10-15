@@ -4,6 +4,11 @@
 <script src="js/vendor/jquery-1.10.2.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/plugins.js"></script>
+
+<script>
+var siteUrl = "<?php echo site_url(); ?>";
+</script>
+
 <script src="js/main.js"></script>
 <?php if (isset($js)) : ?>
 <script src="js/<?php echo $js ; ?>.js"></script>
@@ -20,6 +25,3 @@ ga('create','UA-XXXXX-X');ga('send','pageview');
 </script>
 <!-- body et html closed in footer.php -->
 
-<script>
-var siteUrl = "<?php echo site_url(); ?>";
-</script>

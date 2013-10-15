@@ -17,9 +17,12 @@ class Admin extends CI_Controller {
 
 	     $data['title'] = "Users";
 
+	     //js
+		 $data['js'] = "admin";
+
 	     $this->load->view('head', $data);
 	     $this->load->view('nav', $data);
-	     $this->load->view('layout', $data);
+	     $this->load->view('admin', $data);
 	     $this->load->view('scripts', $data);
 	     $this->load->view('footer', $data);
 	   }
@@ -28,6 +31,28 @@ class Admin extends CI_Controller {
 	     //If no session, redirect to login page
 	     redirect('login', 'refresh');
 	   }
+	}
+
+	public function load_all()
+	{
+		//load user model
+		$this->load->model('user_model');
+
+		//security check
+		$session_data = $this->session->userdata('logged_in');
+	    $admin = $session_data['privilege'];
+	    if ($admin < 50) // security check
+	    {
+	    	return false;
+	    }
+	    else // if security cleared, then load the users
+	    {
+	    	$results = $this->user_model->load_all_users();
+	    	header('Content-Type: application/json');
+	    	echo json_encode($results);
+	    }
+
+
 	}
 }
 

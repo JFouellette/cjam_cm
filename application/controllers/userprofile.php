@@ -61,6 +61,7 @@ class UserProfile extends CI_Controller {
 		if($this->session->userdata('logged_in'))
 		{
 			$check = $this->user_model->loaddata($userid); //return array of objects
+			header('Content-Type: application/json');
 			echo json_encode($check[0]);			// return objects in json
 
 		}

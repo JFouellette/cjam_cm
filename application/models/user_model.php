@@ -50,6 +50,18 @@ Class User_model extends CI_Model
     
    }
 
+   function create_new_user($data)
+   {
+    $this->db->insert('cm_users', $data);
+
+    if($this->db->_error_message()) {
+      return false;
+    } else {
+      return true;
+    }
+
+   }
+
    function check_password($user_id, $password)
    {
      $this -> db -> select('user_id, name, password');

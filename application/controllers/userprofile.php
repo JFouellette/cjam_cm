@@ -163,6 +163,19 @@ class UserProfile extends CI_Controller {
 
 	}
 
+	public function create_new_user()
+	{
+		$input = array(
+				"name" => $this->input->post('name'),
+				"email" => $this->input->post('email')
+				);
+		
+		$create = $this->user_model->create_new_user($input);
+		if ($create === false)
+		{
+			echo "Database error";
+		}
+	}
 }
 
 /* End of file userprofile.php */
